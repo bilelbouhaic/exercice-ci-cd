@@ -10,3 +10,4 @@ app.get("/health", (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log(`Serveur lancé sur http://localhost:${PORT}`);
 });
+// Trigger CI
