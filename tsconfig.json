@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    /* Paramètres de base */
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext"],
+    "types": ["node"],
+    "skipLibCheck": true,
+
+    /* Organisation des fichiers */
+    "outDir": "./dist",
+    "rootDir": "./", // On garde tout à la racine pour l'instant
+
+    /* Paramètres de compilation */
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": false, // On le met à false pour éviter le bug que tu as eu
+    
+    /* Autres options utiles */
+    "sourceMap": true,
+    "declaration": true
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
