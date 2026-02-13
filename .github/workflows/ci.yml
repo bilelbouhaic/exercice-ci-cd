@@ -1,0 +1,30 @@
+name: Pipeline CI Master 1
+
+# 1. Quand est-ce que la pipeline se déclenche ?
+on:
+  pull_request:
+    branches: ["main"] # Uniquement quand on veut fusionner vers la branche main
+
+# 2. Qu'est-ce qu'on demande à GitHub de faire ?
+jobs:
+  verification:
+    runs-on: ubuntu-latest # GitHub ouvre un ordinateur virtuel sous Linux
+
+    steps:
+      - name: Récupérer le code du dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js v20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Vérifier TypeScript (Compilation)
+        run: npm run ts
+
+      - name: Vérifier le Linter (Style du code)
+        run: npm run lint
